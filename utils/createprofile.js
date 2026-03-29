@@ -1,9 +1,10 @@
 import { supabase } from "@/lib/supabaseClient"
 
-export async function createProfile(user) {
+export async function createProfile(user, name, role) {
     const { error } = await supabase.from("profiles").insert({
         id: user.id,
-        name: "",
+        name: name,
+        role: role,
     })
 
     if (error) {
